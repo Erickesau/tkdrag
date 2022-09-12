@@ -1,0 +1,53 @@
+tkdrag v1.1 Python class to drag tkinter widgets and windows
+dragging bind will be configured few milisecons after the mainloop run to avoid the bind to be replaced.
+
+class Drag(widget, *args)
+
+widget :
+    is the widget to make draggable
+args :
+    sticky aditional widgets or windows to move
+    togueter with the draggable widget
+    Example: Drag(button, somelabel, somewindow)
+
+
+methods defined here:
+
+stop :
+    use this method to stop dragging
+start :
+    use this method to start dragging
+
+
+Examples
+#----------------------------------
+from tkinter import Button, Tk
+from tkdrag import Drag
+root = Tk()
+dr = Drag(root)
+Button(text="Stop dragging window",command=dr.stop, bg="#ff99dd").grid()
+Button(text="Start dragging window",command=dr.start, bg="#ff99dd").grid()
+root.geometry("400x400+50+50")
+root.mainloop()
+#----------------------------------
+
+#----------------------------------
+from tkinter import *
+from tkdrag import Drag
+root = Tk()
+label = Label(width=30, height=10, bg="#225588", borderwidth=10, relief="ridge")
+label.pack()	
+button = Button(text="Drag me", bg="#ff99dd", activebackground="yellow")
+button.pack()
+Drag(button)
+Drag(label)
+root.geometry("400x400+50+50")
+root.mainloop()
+#----------------------------------
+
+
+martinezesau90@gmail.com
+www.erickesau.wordpress.com
+https://github.com/Erickesau
+https://www.paypal.com/paypalme/erickesau0
+
